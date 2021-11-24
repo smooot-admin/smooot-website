@@ -1,0 +1,22 @@
+@import './variables';
+
+.container {
+    @include flex(space-between);
+    padding: 2rem;
+    background: $black;
+
+    .logoCont {
+        width: 15rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .btns {
+        @include flex(space-between);
+        width: 7rem;
+        color: $primary;
+        cursor: pointer;
+    }
+}

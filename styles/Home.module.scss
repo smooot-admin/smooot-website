@@ -1,0 +1,211 @@
+@import './variables';
+
+.container {
+
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  .head {
+    display: flex;
+    background: $black;
+    flex-wrap: wrap;
+
+    .right {
+      width: 30%;
+      padding-left: 2rem;
+      position: relative;
+      
+      .smooot {
+        line-height: 7rem;
+        margin: 5rem 0;
+      }
+      
+      h1 {
+        font-size: 7rem;
+        color: white;
+      }
+      
+      .coming {
+        font-size: 2.5rem;
+        color: white;
+      }
+
+      span {
+        color: #4edcce;
+      }
+
+      .socials {
+        @include flex(space-between);
+        max-width: 20rem;
+        position: absolute;
+        bottom: 2rem;
+
+        p {
+          margin-right: 5rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .left {
+      width: 70%
+    }
+  }
+
+  .center {
+    margin: 3rem 0;
+    padding: 2rem;
+    h1 {
+      font-size: 5rem;
+      &:first-child {
+        color: $primary;
+      }
+      &:nth-child(2) {
+        color: $secondary
+      }
+    }
+    .underline {
+      border-bottom: 2px solid $primary;
+      width: 10rem;
+      margin: 2rem 0;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 5rem;
+    }
+  }
+
+  .bottom {
+    background: #000000;
+    width: 100%;
+    position: relative;
+
+    .top {
+      background: #000000;
+      width: 100%;
+      height: 5rem;
+    }
+
+    .inner {
+      padding: 2rem;
+      width: 100%;
+      height: 30rem;
+      background: url('../assets/map-2\ 1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+
+      h1 {
+        font-size: 5rem;
+        &:first-child {
+          color: $primary;
+        }
+        &:nth-child(2) {
+          color: $secondary
+        }
+      }
+      p {
+        font-size: 1.2rem;
+        max-width: 40rem;
+        line-height: 3rem;
+      }
+    }
+
+    .foot {
+      color: white;
+      padding: 3rem;
+      
+      .innerFoot {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+        min-width: 30rem;
+        flex-wrap: wrap;
+      }
+
+      .heading {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      p:not(.heading) {
+        font-size: 1.1rem;
+      }
+
+      .socials {
+        margin-right: 3rem;
+        width: 40%;
+        min-width: 15rem;
+
+        .icons {
+          @include flex(space-between);
+          cursor: pointer;
+        }
+      }
+
+      .contact {
+        min-width: 15rem;
+      }
+    }
+
+    .form {
+      position: absolute;
+      right: 10rem;
+      top: 1.5rem;
+      background: white;
+      width: 35rem;
+      border-radius: .5rem;
+      
+      .header {
+        padding: 2rem;
+        font-size: 2rem;
+        margin: 1rem 0;
+      }
+
+      form {
+        div {
+          margin: 5rem 2rem;
+        }
+        input {
+          display: block;
+          width: 100%;
+          padding: .5rem;
+          border: none;
+          border-bottom: 2px solid black;
+          font-size: 1.1rem;
+
+          &:hover,
+          &:active,
+          &:focus {
+            background: rgb(233, 233, 233);
+            outline: none;
+          }
+        }
+        .button {
+          margin: 2rem 0;
+          @include flex(flex-end);
+          button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 1rem .8rem;
+            font-size: 1.2rem;
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+            cursor: pointer;
+
+            &:hover {
+              background: $black;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
