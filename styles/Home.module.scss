@@ -13,26 +13,47 @@
   .head {
     display: flex;
     background: $black;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    margin: 0 auto;
+    min-height: 20rem;
 
     .right {
       width: 30%;
-      padding-left: 2rem;
+      // max-width: 30rem;
+      min-width: 30rem;
+      padding: 0 2rem;
       position: relative;
       
       .smooot {
         line-height: 7rem;
         margin: 5rem 0;
+        
+        h1 {
+          font-size: 7rem;
+          color: white;
+        }
+
+        @media only screen and (max-width: $mobile) {
+          h1 {
+            font-size: 4.5rem;
+            font-weight: bolder;
+          }
+          text-align: center;
+        }
       }
       
-      h1 {
-        font-size: 7rem;
-        color: white;
-      }
       
       .coming {
         font-size: 2.5rem;
         color: white;
+        margin-bottom: 6rem;
+        white-space:nowrap;
+
+        @media only screen and (max-width: $mobile) {
+          font-size: 1.6rem;
+          text-align: center;
+          margin-bottom: 2rem;
+        }
       }
 
       span {
@@ -49,10 +70,32 @@
           margin-right: 5rem;
           cursor: pointer;
         }
+
+        @media only screen and (max-width: $small-dt) {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: $small-dt) {
+        text-align: center;
+        width: 100%;
       }
     }
     .left {
-      width: 70%
+      width: 70%;
+
+      img {
+        width: 100%;
+      }
+
+      @media only screen and (max-width: $small-dt) {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+    @media only screen and (max-width: $small-dt) {
+      flex-wrap: wrap;
     }
   }
 
@@ -61,21 +104,46 @@
     padding: 2rem;
     h1 {
       font-size: 5rem;
-      &:first-child {
+      &.first {
         color: $primary;
       }
-      &:nth-child(2) {
+      &.second {
         color: $secondary
       }
+
     }
+
     .underline {
       border-bottom: 2px solid $primary;
       width: 10rem;
       margin: 2rem 0;
     }
+
     p {
       font-size: 1.2rem;
       line-height: 5rem;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      margin: 1rem 0;
+      h1 {
+        font-size: 3.5rem;
+      }
+      .underline {
+        display: none
+      }
+      .underline-cont1 {
+        @include flex(center);
+        .underline1 {
+          border-bottom: 2px solid lightgrey;
+          width: 70%;
+          margin: 2rem 0;
+        }
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
     }
   }
 
@@ -124,7 +192,7 @@
         display: flex;
         justify-content: space-between;
         width: 35%;
-        min-width: 30rem;
+        min-width: 20rem;
         flex-wrap: wrap;
       }
 
@@ -151,6 +219,27 @@
       .contact {
         min-width: 15rem;
       }
+
+      @media only screen and (max-width: $small-dt) {
+        .innerFoot {
+          width: 100%;
+          text-align: center;
+        }
+        .socials {
+          order: 2;
+          text-align: center;
+          margin-right: 0;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        .contact {
+          text-align: center;
+          order: 1;
+          margin-bottom: 2rem;
+          width: 100%;
+        }
+      }
     }
 
     .form {
@@ -158,8 +247,9 @@
       right: 10rem;
       top: 1.5rem;
       background: white;
-      width: 35rem;
-      border-radius: .5rem;
+      width: 80%;
+      max-width: 35rem;
+      border-radius: 1rem;
       
       .header {
         padding: 2rem;
@@ -170,6 +260,9 @@
       form {
         div {
           margin: 5rem 2rem;
+        }
+        label {
+          font-size: 1.1rem;
         }
         input {
           display: block;
@@ -205,7 +298,40 @@
           }
         }
       }
+
+      @media only screen and (max-width: $small-dt) {
+        position: initial;
+        text-align: left;
+        margin: 3rem auto;
+
+        .header {
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+
+        form {
+          div {
+            margin: 2rem 1rem;
+          }
+          label {
+            font-size: .8rem;
+          }
+          input {
+            font-size: .9rem;
+          }
+          .button {
+            margin: 1rem 0;
+            button {
+              margin-bottom: 5rem;
+            }
+          }
+        }
+      }
     }
 
+  }
+
+  @media only screen and (max-width: $mobile) {
+    text-align: center;
   }
 }

@@ -18,5 +18,13 @@
         width: 7rem;
         color: $primary;
         cursor: pointer;
+
+        @media only screen and (max-width: $mobile) {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: $mobile) {
+        @include flex(center);
     }
 }

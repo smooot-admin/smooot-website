@@ -3,13 +3,16 @@ import Image from "next/image";
 import { BsDashLg } from 'react-icons/bs';
 import Navbar from "../components/Navbar";
 import phoneImage from "../assets/phone.png";
-import twitter from '../assets/twitter.png';
-import instagram from '../assets/instagram.png';
-import facebook from '../assets/facebook.png';
+import twitter from '../assets/twitter.svg';
+import instagram from '../assets/instagram.svg';
+import facebook from '../assets/facebook.svg';
 
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
+
+  const logo = require('../assets/phone.png');
+
   return (
     <>
       <Navbar />
@@ -23,18 +26,21 @@ const Home: NextPage = () => {
             </div>
             <p className={styles.coming}> {"< C O M I N G   S O O N />"} </p>
             <div className={styles.socials}>
-              <p> <Image src={twitter} /> </p>
+              <p> <Image src={twitter} objectFit="contain" /> </p>
               <p> <Image src={instagram} /> </p>
               <p> <Image src={facebook} /> </p>
             </div>
           </div>
           <div className={styles.left}>
-            <Image src={phoneImage} />
+            <Image src={logo} />
           </div>
         </div>
         <div className={styles.center}>
-          <h1>We Are So</h1>
-          <h1>Smooot</h1>
+          <div className={styles['underline-cont1']}>
+            <div className={styles.underline1} ></div>
+          </div>
+          <h1 className={styles.first}>We Are So</h1>
+          <h1 className={styles.second}>Smooot</h1>
           <div className={styles.underline} ></div>
           <p>
             The Smooot App is Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -45,6 +51,15 @@ const Home: NextPage = () => {
           </p>
         </div>
         <div className={styles.bottom}>
+          <div className={styles.top}></div>
+          <div className={styles.inner}>
+            <h1>We Are</h1>
+            <h1>Here</h1>
+            <p>
+              For Enquiries, and to participate in testing the <b>beta version</b> of our App
+              reach out to us we are always available to chat
+            </p>
+          </div>
           <div className={styles.form} >
             <p className={styles.header} >CONTACT US</p>
             <form>
@@ -64,15 +79,6 @@ const Home: NextPage = () => {
                 <button>SEND MESSAGE <BsDashLg /> </button>
               </div>
             </form>
-          </div>
-          <div className={styles.top}></div>
-          <div className={styles.inner}>
-            <h1>We Are</h1>
-            <h1>Here</h1>
-            <p>
-              For Enquiries, and to participate in testing the <b>beta version</b> of our App
-              reach out to us we are always available to chat
-            </p>
           </div>
           <div className={styles.foot}>
             <div className={styles.innerFoot} >

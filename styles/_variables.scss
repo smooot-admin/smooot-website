@@ -2,6 +2,9 @@ $primary: #57bdff;
 $secondary: #47edae;
 $black: #121416;
 
+$mobile: 700px;
+$small-dt: 1430px;
+
 @mixin flex($justify-content) {
     display: flex;
     justify-content: $justify-content;
