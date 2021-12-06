@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className={styles.left}>
-            <Image src={logo} />
+            <Image src={logo} priority />
           </div>
         </div>
         <div className={styles.center}>
