@@ -49,6 +49,10 @@
         margin-bottom: 6rem;
         white-space:nowrap;
 
+        .gap {
+          padding: 0 1rem;
+        }
+
         @media only screen and (max-width: $mobile) {
           font-size: 1.6rem;
           text-align: center;
@@ -78,6 +82,7 @@
 
       @media only screen and (max-width: $small-dt) {
         text-align: center;
+        min-width: 20rem;
         width: 100%;
       }
     }

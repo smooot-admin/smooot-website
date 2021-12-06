@@ -24,11 +24,11 @@ const Home: NextPage = () => {
               <h1>Sm<span>ooo</span>t</h1>
               <h1>App</h1>
             </div>
-            <p className={styles.coming}> {"< C O M I N G   S O O N />"} </p>
+            <p className={styles.coming}> {"<"} C O M I N G <span className={styles.gap}></span> S O O N {"/>"} </p>
             <div className={styles.socials}>
               <p> <Image src={twitter} objectFit="contain" /> </p>
-              <p> <Image src={instagram} /> </p>
-              <p> <Image src={facebook} /> </p>
+              <p> <a href="https://www.instagram.com/smoootapp/" target="_blank" rel="noopener noreferrer"><Image src={instagram} /></a></p>
+              <p> <a href="https://web.facebook.com/smoootapp/" target="_blank" rel="noopener noreferrer"><Image src={facebook} /></a></p>
             </div>
           </div>
           <div className={styles.left}>
@@ -43,11 +43,12 @@ const Home: NextPage = () => {
           <h1 className={styles.second}>Smooot</h1>
           <div className={styles.underline} ></div>
           <p>
-            The Smooot App is Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Risus est iaculis euismod condimentum et amet, vel ullamcorper
-            vel. Hendrerit lobortis diam, proin pellentesque risus. Ultricies
-            nisi amet, justo, sit. Nunc, purus auctor bibendum eleifend purus
-            neque sit blandit nulla. Lacus tempus ut fames amet.
+            The smooot app is a next generation platform connecting passengers and riders Smooot provides a
+            platform for individuals (Passengers) to book/order and pay for interstate travel in Nigeria
+            seamlessly. Smooot intends and is working on making a secured platform for all the stakeholders
+            using the platform. The team at smooot are working in providing a unique solution in solving the
+            challenges associated with booking and paying for interstate travels .While we are working on
+            building a unique platform for all, Keep calm and Stay smooot!
           </p>
         </div>
         <div className={styles.bottom}>
@@ -86,8 +87,8 @@ const Home: NextPage = () => {
                 <p className={styles.heading}>SOCIALS</p>
                 <div className={styles.icons}>
                   <p> <Image src={twitter} /> </p>
-                  <p> <Image src={instagram} /> </p>
-                  <p> <Image src={facebook} /> </p>
+                  <p> <a href="https://www.instagram.com/smoootapp/" target="_blank" rel="noopener noreferrer"><Image src={instagram} /></a></p>
+                  <p> <a href="https://web.facebook.com/smoootapp/" target="_blank" rel="noopener noreferrer"><Image src={facebook} /></a></p>
                 </div>
               </div>
               <div className={styles.contact}>
