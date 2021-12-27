@@ -10,3 +10,9 @@ $small-dt: 1430px;
     justify-content: $justify-content;
     align-items: center;
 }
+
+@mixin mobile($mobile-screen) {
+    @media only screen and (max-width: $mobile-screen) {
+        @content;
+    }
+}

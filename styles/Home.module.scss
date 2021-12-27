@@ -16,13 +16,17 @@
     // flex-wrap: wrap;
     margin: 0 auto;
     min-height: 20rem;
+    position: relative;
 
     .right {
       width: 30%;
-      // max-width: 30rem;
       min-width: 30rem;
       padding: 0 2rem;
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      z-index: 10;
       
       .smooot {
         line-height: 7rem;
@@ -84,18 +88,37 @@
         text-align: center;
         min-width: 20rem;
         width: 100%;
+        padding: 0;
       }
     }
     .left {
-      width: 70%;
+      width: 100%;
+      min-height: 40rem;
+      overflow: hidden;
+      position: relative;
 
-      img {
+      .overlay {
+        position: absolute;
         width: 100%;
+        height: 100%;
+        background: black;
+        opacity: .4;
+      }
+
+      video {
+        width: 100%;
+        min-width: 78rem;
       }
 
       @media only screen and (max-width: $small-dt) {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
+      }
+
+      @include mobile($mobile) {
+        video {
+          transform: translateX(-20rem);
+        }
       }
     }
 
@@ -222,12 +245,15 @@
       }
 
       .contact {
-        min-width: 15rem;
+        min-width: 10rem;
       }
 
       @media only screen and (max-width: $small-dt) {
+        padding: 3rem 1rem;
+
         .innerFoot {
           width: 100%;
+          min-width: initial;
           text-align: center;
         }
         .socials {

@@ -12,8 +12,8 @@ const Navbar = () => {
                 <Image src={logo} />            
             </div>
             <div className={styles.btns} >
-                <p> <Image src={list} /> </p>
-                <p> <Image src={profile} /> </p>
+                {/* <p> <Image src={list} /> </p>
+                <p> <Image src={profile} /> </p> */}
             </div>
         </div>
     )

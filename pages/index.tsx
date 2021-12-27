@@ -6,6 +6,8 @@ import phoneImage from "../assets/phone.png";
 import twitter from '../assets/twitter.svg';
 import instagram from '../assets/instagram.svg';
 import facebook from '../assets/facebook.svg';
+import backgroundVideo from '../assets/landing.mp4';
+
 
 import styles from "../styles/Home.module.scss";
 
@@ -25,14 +27,17 @@ const Home: NextPage = () => {
               <h1>App</h1>
             </div>
             <p className={styles.coming}> {"<"} C O M I N G <span className={styles.gap}></span> S O O N {"/>"} </p>
-            <div className={styles.socials}>
+            {/* <div className={styles.socials}>
               <p> <Image src={twitter} objectFit="contain" /> </p>
               <p> <a href="https://www.instagram.com/smoootapp/" target="_blank" rel="noopener noreferrer"><Image src={instagram} /></a></p>
               <p> <a href="https://web.facebook.com/smoootapp/" target="_blank" rel="noopener noreferrer"><Image src={facebook} /></a></p>
-            </div>
+            </div> */}
           </div>
           <div className={styles.left}>
-            <Image src={logo} priority />
+            {/* <div className={styles.overlay}></div> */}
+            <video autoPlay playsInline muted loop poster={logo}>
+              <source src={backgroundVideo} type="video/mp4" />
+            </video>
           </div>
         </div>
         <div className={styles.center}>
