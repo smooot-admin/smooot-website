@@ -8,8 +8,21 @@ import instagram from '../assets/instagram.svg';
 import facebook from '../assets/facebook.svg';
 import backgroundVideo from '../assets/landing.mp4';
 
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 
 import styles from "../styles/Home.module.scss";
+
+firebase.initializeApp({
+  apiKey: "AIzaSyDhtxFnoBtinzQDRFBmX4V0eSkciWyOxUA",
+  authDomain: "smooot-6d194.firebaseapp.com",
+  projectId: "smooot-6d194",
+  storageBucket: "smooot-6d194.appspot.com",
+  messagingSenderId: "376821638138",
+  appId: "1:376821638138:web:fb79afd0694f4a21d67a43",
+  measurementId: "G-XSQXSJVVSX"
+});
 
 const Home: NextPage = () => {
 
