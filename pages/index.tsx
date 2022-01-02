@@ -8,11 +8,14 @@ import instagram from '../assets/instagram.svg';
 import facebook from '../assets/facebook.svg';
 import backgroundVideo from '../assets/landing.mp4';
 
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+
+import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import styles from "../styles/Home.module.scss";
+
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDhtxFnoBtinzQDRFBmX4V0eSkciWyOxUA",
@@ -23,6 +26,8 @@ firebase.initializeApp({
   appId: "1:376821638138:web:fb79afd0694f4a21d67a43",
   measurementId: "G-XSQXSJVVSX"
 });
+
+const firestore = firebase.firestore(); 
 
 const Home: NextPage = () => {
 
