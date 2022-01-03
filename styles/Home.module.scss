@@ -287,6 +287,10 @@
         @include flex(center);
         width: 80%;
         margin: 0 auto;
+
+        @include mobile($mobile) {
+          font-size: .7rem;
+        }
       }
 
       .box {
@@ -322,7 +326,7 @@
           margin: 5rem 2rem;
 
           &:first-child {
-            margin: 2rem;
+            margin-top: 2rem;
           }
         }
         label {
