@@ -281,6 +281,35 @@
       width: 80%;
       max-width: 35rem;
       border-radius: 1rem;
+
+      .box, .alert {
+        transition: .3s ease;
+        @include flex(center);
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .box {
+        height: 2rem;
+        padding: 1rem 0;
+        border: 2px solid white;
+      }
+      
+      .success {
+        border: 2px solid green;
+        color: green;
+        background: rgba($color: green, $alpha: .3);
+      }
+
+      .error {
+        border: 2px solid red;
+        color: red;
+        background: rgba($color: red, $alpha: .3);
+      }
+
+      .alert {
+        height: 0;
+      }
       
       .header {
         padding: 2rem;
@@ -291,6 +320,10 @@
       form {
         div {
           margin: 5rem 2rem;
+
+          &:first-child {
+            margin: 2rem;
+          }
         }
         label {
           font-size: 1.1rem;
@@ -325,6 +358,9 @@
 
             &:hover {
               background: $black;
+            }
+            &:disabled {
+              background: grey;
             }
           }
         }

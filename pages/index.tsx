@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useState, FormEvent, ChangeEvent } from 'react';
 import Image from "next/image";
 import { BsDashLg } from 'react-icons/bs';
 import Navbar from "../components/Navbar";
@@ -8,16 +9,16 @@ import instagram from '../assets/instagram.svg';
 import facebook from '../assets/facebook.svg';
 import backgroundVideo from '../assets/landing.mp4';
 
-import firebase from 'firebase/compat/app';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc, query, where, getDocs } from 'firebase/firestore';
+import 'firebase/compat/auth';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import styles from "../styles/Home.module.scss";
 
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
 
-firebase.initializeApp({
+const firebaseApp = initializeApp({
   apiKey: "AIzaSyDhtxFnoBtinzQDRFBmX4V0eSkciWyOxUA",
   authDomain: "smooot-6d194.firebaseapp.com",
   projectId: "smooot-6d194",
@@ -27,11 +28,64 @@ firebase.initializeApp({
   measurementId: "G-XSQXSJVVSX"
 });
 
-const firestore = firebase.firestore(); 
+const db = getFirestore(firebaseApp); 
+const messages = collection(db, "messages");
 
 const Home: NextPage = () => {
-
+  
   const logo = require('../assets/phone.png');
+
+  const [loading, setLoading] = useState(false);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [text, setText] = useState("");
+
+  const handleName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+  const handleEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
+  const handleMessage = (e: ChangeEvent<HTMLInputElement>) => setMessage(e.target.value);
+
+  const postMessage = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSuccess(false);
+    setError(false);
+    setText("");
+    setLoading(true);
+
+    const userQuery = query(
+      messages,
+      where('email', '==', email)
+    )
+
+    try {
+      const querySnapshot = await getDocs(userQuery);
+
+      if (querySnapshot.docs.length > 0) {
+        setError(true);
+        setText('You have posted a message before.');
+        setLoading(false);
+      } else {
+        await addDoc(messages, {
+          name,
+          email,
+          message,
+          date: new Date,
+        });
+        setLoading(false);
+        setSuccess(true);
+        setText("Your message has been posted. Thank you");
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      setError(true);
+      setText("Error posting message. Try again later")
+    }
+  }
 
   return (
     <>
@@ -86,21 +140,28 @@ const Home: NextPage = () => {
           </div>
           <div className={styles.form} >
             <p className={styles.header} >CONTACT US</p>
-            <form>
+            <div className={
+              success ? `${styles.box} ${styles.success}` :
+              error ? `${styles.box} ${styles.error}` :
+              styles.alert
+            }>
+              {text}
+            </div>
+            <form onSubmit={postMessage} >
               <div>
                 <label>NAME</label>
-                <input type="text" />
+                <input type="text" value={name} onChange={handleName} />
               </div>
               <div>
                 <label>EMAIL</label>
-                <input type="text" />
+                <input type="email" value={email} onChange={handleEmail} />
               </div>
               <div>
                 <label>YOUR MESSAGE</label>
-                <input type="text" />
+                <input type="text" value={message} onChange={handleMessage} />
               </div>
               <div className={styles.button}>
-                <button>SEND MESSAGE <BsDashLg /> </button>
+                <button disabled={email.length < 1 || name.length < 1 || message.length < 1} type="submit"> {loading ? "LOADING..." : "SEND MESSAGE"} <BsDashLg /> </button>
               </div>
             </form>
           </div>
