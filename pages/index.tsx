@@ -2,18 +2,20 @@ import type { NextPage } from "next";
 import { useState, FormEvent, ChangeEvent } from 'react';
 import Image from "next/image";
 import { BsDashLg } from 'react-icons/bs';
+import axios from 'axios';
 import Navbar from "../components/Navbar";
-import phoneImage from "../assets/phone.png";
+// import phoneImage from "../assets/phone.png";
 import twitter from '../assets/twitter.svg';
 import instagram from '../assets/instagram.svg';
 import facebook from '../assets/facebook.svg';
 import backgroundVideo from '../assets/landing.mp4';
+import { server } from '../constants/server'
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, query, where, getDocs } from 'firebase/firestore';
 import 'firebase/compat/auth';
 
-import { useCollectionData } from 'react-firebase-hooks/firestore'
+// import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import styles from "../styles/Home.module.scss";
 
@@ -75,6 +77,13 @@ const Home: NextPage = () => {
           message,
           date: new Date,
         });
+
+        const body = {
+          email,
+        }
+        const sendEmail = await axios.post(`${server}/email/send`, body);
+        console.log(sendEmail);
+
         setLoading(false);
         setSuccess(true);
         setText("Your message has been posted. Thank you");

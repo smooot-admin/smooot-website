@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "firebase": "^9.6.1",
     "firebase-tools": "^10.0.1",
     "global": "^4.4.0",
