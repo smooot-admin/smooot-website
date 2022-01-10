@@ -19,13 +19,13 @@ import styles from "../styles/Home.module.scss";
 
 
 const firebaseApp = initializeApp({
-  apiKey: "AIzaSyDhtxFnoBtinzQDRFBmX4V0eSkciWyOxUA",
-  authDomain: "smooot-6d194.firebaseapp.com",
-  projectId: "smooot-6d194",
-  storageBucket: "smooot-6d194.appspot.com",
-  messagingSenderId: "376821638138",
-  appId: "1:376821638138:web:fb79afd0694f4a21d67a43",
-  measurementId: "G-XSQXSJVVSX"
+  apiKey: "AIzaSyCSZKaNLcbVPUQzuB-S9rvHrnDO1207OUY",
+  authDomain: "smooot-app.firebaseapp.com",
+  projectId: "smooot-app",
+  storageBucket: "smooot-app.appspot.com",
+  messagingSenderId: "309770591549",
+  appId: "1:309770591549:web:1e199b3fd9810c99d13954",
+  measurementId: "G-YY18GC39KD"
 });
 
 const db = getFirestore(firebaseApp); 
