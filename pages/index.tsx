@@ -44,6 +44,7 @@ const Home: NextPage = () => {
   const [message, setMessage] = useState("");
 
   const [success, setSuccess] = useState(false);
+  const [info, setInfo] = useState(false);
   const [error, setError] = useState(false);
   const [text, setText] = useState("");
 
@@ -54,6 +55,7 @@ const Home: NextPage = () => {
   const postMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSuccess(false);
+    setInfo(false);
     setError(false);
     setText("");
     setLoading(true);
@@ -67,11 +69,11 @@ const Home: NextPage = () => {
       const querySnapshot = await getDocs(userQuery);
 
       if (querySnapshot.docs.length > 0) {
-        setError(true);
+        setInfo(true);
         setText('You have posted a message before.');
         setLoading(false);
       } else {
-        
+
         const body = {
           name,
           email,
@@ -151,6 +153,7 @@ const Home: NextPage = () => {
             <p className={styles.header} >CONTACT US</p>
             <div className={
               success ? `${styles.box} ${styles.success}` :
+              info ? `${styles.box} ${styles.info}` :
               error ? `${styles.box} ${styles.error}` :
               styles.alert
             }>
