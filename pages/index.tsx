@@ -71,16 +71,16 @@ const Home: NextPage = () => {
         setText('You have posted a message before.');
         setLoading(false);
       } else {
-        await addDoc(messages, {
+        
+        const body = {
           name,
           email,
           message,
           date: new Date,
-        });
-
-        const body = {
-          email,
         }
+
+        await addDoc(messages, body);
+        
         const sendEmail = await axios.post(`${server}/email/send`, body);
         console.log(sendEmail);
 
