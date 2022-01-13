@@ -190,7 +190,7 @@ const Home: NextPage = () => {
               <div className={styles.contact}>
                 <p className={styles.heading}>OUR CONTACT</p>
                 <p>hello@smooot.com</p>
-                <p>+234 000 000 ##3</p>
+                <p>+234 809 209 7264</p>
               </div>
             </div>
           </div>
